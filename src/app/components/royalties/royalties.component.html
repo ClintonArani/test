@@ -1,0 +1,262 @@
+<app-header />
+<div class="main">
+
+  <!-- Navigation Back -->
+  <div class="navigate">
+    <div class="back-icon">
+      <i class="fas fa-chevron-left"></i>
+      <i class="fas fa-chevron-left" style="margin-left: -12px"></i>
+      <i class="fas fa-chevron-left" style="margin-left: -12px"></i>
+    </div>
+    <p>Back to Dashboard</p>
+  </div>
+
+  <!-- Section Header -->
+  <div class="royalties">
+    <span>
+      <i class="fas fa-dollar-sign circled-icon"></i>
+      <h3>Finance Modules</h3>
+    </span>
+    <p>Navigate between Royalties, Withdrawals, and Funding</p>
+
+    <!-- Top Tabs -->
+    <div class="cards">
+      <div 
+        class="card" 
+        [class.active]="activeSection === 'royalties'" 
+        (click)="setActiveSection('royalties')">
+        Royalties
+      </div>
+      <div 
+        class="card" 
+        [class.active]="activeSection === 'withdrawals'" 
+        (click)="setActiveSection('withdrawals')">
+        Withdrawals
+      </div>
+      <div 
+        class="card" 
+        [class.active]="activeSection === 'funding'" 
+        (click)="setActiveSection('funding')">
+        Funding
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= ROYALTIES SECTION ======================= -->
+  <div *ngIf="activeSection === 'royalties'" class="management">
+    <h3>Royalties Management</h3>
+    <p>Import statements, manage allocations, and process royalty distributions</p>
+
+    <!-- Sub Tabs -->
+    <div class="container-cards">
+      <div 
+        class="container-card" 
+        [class.active]="activeTab === 'statement'" 
+        (click)="setActiveTab('statement')">
+        Statements
+      </div>
+      <div 
+        class="container-card" 
+        [class.active]="activeTab === 'royalties'" 
+        (click)="setActiveTab('royalties')">
+        Royalties
+      </div>
+      <div 
+        class="container-card" 
+        [class.active]="activeTab === 'pubRoyalties'" 
+        (click)="setActiveTab('pubRoyalties')">
+        Pub Royalties
+      </div>
+    </div>
+
+    <!-- Statement Tab -->
+    <div *ngIf="activeTab === 'statement'" class="statement">
+      <h3>Statements</h3>
+      <p>
+        Import statements, map sources for auto-detection, and review data for approval and allocation
+      </p>
+      <div class="statement-container">
+        <div class="statement-part1">
+          <div class="left">
+            <h5>Statement Import</h5>
+            <p>Manage imported royalty statements and review mapping results</p>
+          </div>
+          <button class="statement-btn">Import Statement</button>
+        </div>
+        <div class="statement-part2">
+          <p>No imported statements found. Click "Import Statement" to get started.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Royalties Tab -->
+    <div *ngIf="activeTab === 'royalties'" class="royal">
+      <h5>Payouts Management</h5>
+      <p>
+        Comprehensive oversight of payees, expenses, account balances, and payouts
+      </p>
+      <div class="search-box">
+        <input type="text" placeholder="Artist, Account ID, Email" />
+        <button class="search-btn">Search</button>
+      </div>
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr class="table-header">
+              <th><input type="checkbox" [(ngModel)]="allSelected" (change)="toggleAllRows()" /></th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Account Id</th>
+              <th>Expenses</th>
+              <th>Earnings to Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tableData" class="table-row">
+              <td><input type="checkbox" [(ngModel)]="item.checked" (change)="updateSelectAllState()" /></td>
+              <td *ngIf="!item.isEditing">{{ item.username }}</td>
+              <td *ngIf="item.isEditing"><input type="text" [(ngModel)]="item.username" /></td>
+
+              <td *ngIf="!item.isEditing">{{ item.email }}</td>
+              <td *ngIf="item.isEditing"><input type="email" [(ngModel)]="item.email" /></td>
+
+              <td *ngIf="!item.isEditing">{{ item.accountId }}</td>
+              <td *ngIf="item.isEditing"><input type="number" [(ngModel)]="item.accountId" /></td>
+
+              <td *ngIf="!item.isEditing">{{ item.expense }}</td>
+              <td *ngIf="item.isEditing"><input type="number" [(ngModel)]="item.expense" /></td>
+
+              <td *ngIf="!item.isEditing">{{ item.earnings }}</td>
+              <td *ngIf="item.isEditing"><input type="number" [(ngModel)]="item.earnings" step="0.01" /></td>
+
+              <td>
+                <div class="action-buttons">
+                  <i [class]="item.icon" (click)="toggleEdit(item)"></i>
+                  <div class="action-btn">
+                    <button *ngIf="item.isEditing" (click)="saveRow(item)">Save</button>
+                    <button *ngIf="item.isEditing" (click)="cancelEdit(item)">Cancel</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pub Royalties Tab -->
+    <div *ngIf="activeTab === 'pubRoyalties'" class="royal">
+      <h5>Publishing Royalties</h5>
+      <p>
+        Manage publishing-specific royalty distributions, contracts, and allocations.
+      </p>
+      <div class="search-box">
+        <input type="text" placeholder="Publisher, Contract ID, Title" />
+        <button class="search-btn">Search</button>
+      </div>
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr class="table-header">
+              <th>Publisher</th>
+              <th>Contract ID</th>
+              <th>Title</th>
+              <th>Royalty Rate (%)</th>
+              <th>Total Earnings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Harmony Publishing</td>
+              <td>CN-78451</td>
+              <td>Melody of Life</td>
+              <td>12%</td>
+              <td>$5,480</td>
+            </tr>
+            <tr>
+              <td>Rhythm House</td>
+              <td>CN-96214</td>
+              <td>Beats Unlimited</td>
+              <td>15%</td>
+              <td>$3,250</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= WITHDRAWALS SECTION ======================= -->
+  <div *ngIf="activeSection === 'withdrawals'" class="management">
+    <h3>Withdrawals Management</h3>
+    <p>Track and manage withdrawal requests from user accounts</p>
+
+    <div class="table-container">
+      <table class="custom-table">
+        <thead>
+          <tr class="table-header">
+            <th>Request ID</th>
+            <th>User</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WR-1021</td>
+            <td>John Doe</td>
+            <td>$450</td>
+            <td>Pending</td>
+            <td>2025-09-10</td>
+          </tr>
+          <tr>
+            <td>WR-1022</td>
+            <td>Jane Smith</td>
+            <td>$780</td>
+            <td>Completed</td>
+            <td>2025-09-11</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= FUNDING SECTION ======================= -->
+  <div *ngIf="activeSection === 'funding'" class="management">
+    <h3>Funding Management</h3>
+    <p>Oversee funding deposits, sponsorships, and financial support</p>
+
+    <div class="table-container">
+      <table class="custom-table">
+        <thead>
+          <tr class="table-header">
+            <th>Funding ID</th>
+            <th>Source</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FD-3011</td>
+            <td>ABC Records</td>
+            <td>$5,000</td>
+            <td>Sponsorship</td>
+            <td>2025-09-05</td>
+          </tr>
+          <tr>
+            <td>FD-3012</td>
+            <td>XYZ Investors</td>
+            <td>$10,000</td>
+            <td>Equity</td>
+            <td>2025-09-07</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

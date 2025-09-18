@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="logo">
+        <img src="assets/logo.png" alt="">
+    </div>
+    
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <div class="nav" [class.active]="isMenuActive">
+        <li>Features</li>
+        <li>DDEX Tools</li>
+        <li>Viral for</li>
+        <li>Requests</li>
+    </div>
+    <div class="user">
+        <i class="fas fa-user"></i>
+        <p>ken oloo</p>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</div>

@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background: #bfbfbf;
+    display: flex;
+    gap: 2rem;
+    padding: 4rem 3rem;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 3rem;
+}
+
+.services {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.icons {
+    font-size: 25px;
+    color: #007bff;
+}
+
+.circled-icon {
+    background-color: white;
+    color: #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notes-container {
+    background: #f2f2f2;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.notes-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.notes-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.view-all-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.view-all-btn:hover {
+    background: #0056b3;
+}
+
+.table-container {
+    background: #f2f2f2;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #989797;
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 500px;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #989797;
+    vertical-align: top;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.custom-table td {
+    letter-spacing: 1px;
+}
+
+.custom-table th {
+    font-weight: bold;
+    color: #333;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tbody tr:last-child {
+    margin-left: 5rem !important;
+}
+
+/* Cards layout */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card p {
+    margin: 0;
+    color: white;
+    font-weight: 500;
+}
+.icons{
+    color: #fff;
+    font-size: 25px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main {
+        padding: 3rem 2rem;
+        gap: 1.5rem;
+    }
+    
+    .cards {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .main {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .custom-table th, 
+    .custom-table td {
+        padding: 10px 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+    
+    .services {
+        padding: 0.75rem;
+    }
+    
+    .notes-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .view-all-btn {
+        align-self: flex-end;
+    }
+    
+    .cards {
+        gap: 0.75rem;
+    }
+    
+    .card {
+        min-width: calc(50% - 0.75rem);
+    }
+    
+    .custom-table {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .text h3 {
+        font-size: 1.25rem;
+    }
+    
+    .text p {
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        min-width: 100%;
+    }
+    
+    .custom-table th, 
+    .custom-table td {
+        padding: 8px 0.5rem;
+    }
+    
+    .custom-table {
+        font-size: 12px;
+        min-width: 400px;
+    }
+    
+    .view-all-btn {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+    .main {
+        padding: 1rem 0.5rem;
+    }
+    
+    .notes-title {
+        font-size: 16px;
+    }
+    
+    .custom-table {
+        min-width: 320px;
+    }
+    
+    .card {
+        padding: 0.75rem;
+    }
+    
+    .card p {
+        font-size: 14px;
+    }
+}
+
+/* Orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main {
+        padding: 1.5rem;
+    }
+    
+    .services {
+        padding: 0.75rem;
+    }
+}
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .view-all-btn {
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+}

@@ -1,0 +1,354 @@
+/* ==================== RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== MAIN LAYOUT ==================== */
+.main {
+  background: #bfbfbf;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Navigation Back */
+.navigate {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.navigate p {
+  font-size: 0.9rem;
+}
+
+/* ==================== ROYALTIES HEADER ==================== */
+.royalties {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 1rem;
+  margin-top: 2rem;
+}
+
+.royalties span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.circled-icon {
+  background-color: black;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span h3 {
+  text-transform: capitalize;
+}
+
+.royalties p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ==================== TABS ==================== */
+.cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 10px;
+}
+
+.card {
+  flex: 1 1 150px;
+  text-align: center;
+  border: solid 1px #038cdb;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background ease-in-out 0.5s;
+}
+
+.card.active,
+.card:hover {
+  background: #038cdb;
+  color: white;
+}
+
+/* ==================== MANAGEMENT ==================== */
+.management {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container-cards {
+  background-color: #fff;
+  margin-top: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 6px;
+  gap: 1rem;
+}
+
+.container-card {
+  border-radius: 10px;
+  padding: 10px;
+  flex: 1 1 120px;
+  text-align: center;
+  cursor: pointer;
+  transition: background ease-in-out 0.5s;
+}
+
+.container-card.active,
+.container-card:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ==================== STATEMENT ==================== */
+.statement {
+  padding-top: 2rem;
+}
+
+.statement-container {
+  background: #fff;
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statement-part1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statement-part1 p {
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.statement-btn {
+  background: #038cdb;
+  border-radius: 10px;
+  padding: 6px 1rem;
+  border: none;
+  font-size: 0.85rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.statement-part2 {
+  align-self: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ==================== ROYALTIES & PUB ROYALTIES ==================== */
+.royal {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.royal p {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Search box */
+.search-box {
+  margin-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1 1 200px;
+  border-radius: 8px;
+  padding: 6px 1rem;
+  border: solid 1px #818080;
+  outline: none;
+}
+
+.search-btn {
+  background: #038cdb;
+  border-radius: 10px;
+  padding: 6px 1rem;
+  border: none;
+  font-size: 0.85rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ==================== TABLE ==================== */
+.table-container {
+  background: #f2f2f2;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 2px solid #989797;
+  margin-top: 2rem;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #989797;
+  vertical-align: top;
+}
+
+.custom-table th {
+  font-weight: bold;
+  color: #333;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* ==================== ACTION BUTTONS ==================== */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-buttons i {
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.action-buttons i:hover {
+  color: #357ABD;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.action-buttons button {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-buttons button:nth-of-type(1) {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.action-buttons button:nth-of-type(1):hover {
+  background-color: #45a049;
+}
+
+.action-buttons button:nth-of-type(2) {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-buttons button:nth-of-type(2):hover {
+  background-color: #da190b;
+}
+
+/* ==================== RESPONSIVE QUERIES ==================== */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .main {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .cards {
+    flex-direction: column;
+  }
+  .container-cards {
+    flex-direction: column;
+  }
+  .search-box {
+    flex-direction: column;
+  }
+  .search-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+  .royalties span {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .statement-part1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+  .cards,
+  .container-cards {
+    flex-direction: column;
+  }
+  .custom-table {
+    font-size: 12px;
+    min-width: 100%;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
