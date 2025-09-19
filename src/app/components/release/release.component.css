@@ -142,6 +142,7 @@
     padding: 2rem;
     border-radius: 1rem;
     border: 2px solid #868585;
+    padding: 2rem 2rem
 
 }
 
@@ -343,7 +344,7 @@
     border-right: 3px solid #cecdca;
     display: flex;
     justify-content: start;
-    padding-left: 6.9rem;
+    padding-left: 6.34rem;
     align-items: center;
     min-width: 200px;
 }
@@ -408,6 +409,7 @@
 .upload-icon {
     color: #3498db;
     font-size: 45px;
+    margin-top: -2rem;
 }
 
 .upload-btn {
@@ -477,7 +479,7 @@ i {
     display: flex;
     justify-content: start;
     align-items: center;
-    padding-left: 6.9rem;
+    padding-left: 6.34rem;
     min-width: 200px;
 }
 
