@@ -1,0 +1,377 @@
+<app-header />
+<div class="main">
+  <!-- Navigation Back -->
+  <div class="navigate">
+    <div class="back-icon">
+      <i class="fas fa-chevron-left"></i>
+      <i class="fas fa-chevron-left" style="margin-left: -12px"></i>
+      <i class="fas fa-chevron-left" style="margin-left: -12px"></i>
+    </div>
+    <p>Back to Dashboard</p>
+  </div>
+  <div class="box">
+    <h3>Release Overview</h3>
+    <p>
+      Import statements, manage allocations, and process royalty distributions
+    </p>
+    <div class="card-box">
+      <div class="left">
+        <button class="workon-btn">Work On</button>
+        <p>ken&#64;rekkod.com</p>
+      </div>
+      <div class="right">
+        <div class="form-group dropdown-wrapper">
+          <label for="status">Status</label>
+          <select
+            id="status"
+            [(ngModel)]="selectedStatus"
+            class="custom-select"
+          >
+            <option *ngFor="let status of statuses" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+
+        <button class="update-btn">Update Release</button>
+        <i class="fas fa-trash-alt delete-icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="song-container">
+    <div class="artist-card">
+      <div class="top">
+        <div class="artist-name">
+          <p>Kante</p>
+          <p>-</p>
+          <p>Davido</p>
+        </div>
+        <div class="catalog">
+          <span>
+            <p>Catalog NO:</p>
+            <p>CAT001</p>
+           </span>
+          <div class="buttons">
+            <div class="toggle-container" (click)="toggleEdit()">
+              <span class="label" style="font-size: medium">Edit</span>
+              <div class="toggle-switch" [class.active]="isEditOn">
+                <div class="toggle-circle"></div>
+                <div class="toggle-text off">OFF</div>
+                <div class="toggle-text on">ON</div>
+              </div>
+            </div>
+
+            <div class="validate-btn">
+              <button class="btn-validate">validate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="btn active">Details</div>
+        <div class="btn">Audio</div>
+        <div class="btn">Distribution</div>
+      </div>
+    </div>
+    <div class="release-info">
+      <div class="top">
+        <div class="left">
+          <p>Artwork</p>
+        </div>
+        <div class="right">
+          <p>Release Info</p>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <div class="image">
+            <img src="assets/artist.png" alt="" />
+          </div>
+          <div class="upload">
+            <i class="fas fa-cloud-download-alt"></i>
+            <button class="upload-btn">Upload</button>
+          </div>
+        </div>
+        <div class="right">
+          <div class="container form-container">
+            <form>
+              <div class="row">
+                <!-- Primary Artist -->
+                <div class="col-md-6 mb-4">
+                  <label for="primaryArtist">
+                    <i class="fas fa-user"></i> Primary Artist
+                    <span class="text-danger">***</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="primaryArtist"
+                    class="form-control custom-input"
+                    placeholder="Enter Primary Artist"
+                  />
+                </div>
+
+                <!-- Release Name -->
+                <div class="col-md-6 mb-4">
+                  <label for="releaseName">
+                    <i class="fas fa-music"></i> Release Name
+                    <span class="text-danger">***</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="releaseName"
+                    class="form-control custom-input"
+                    placeholder="Enter Release Name"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Metadata Language -->
+                <div class="col-md-6 mb-4">
+                  <label for="metadataLanguage">
+                    <i class="fas fa-language"></i> Metadata Language
+                    <span class="text-danger">***</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="metadataLanguage"
+                    class="form-control custom-input"
+                    placeholder="Enter Language"
+                  />
+                </div>
+
+                <!-- Release Version -->
+                <div class="col-md-6 mb-4">
+                  <label for="releaseVersion">
+                    <i class="fas fa-code-branch"></i> Release Version
+                  </label>
+                  <input
+                    type="text"
+                    id="releaseVersion"
+                    class="form-control custom-input"
+                    placeholder="Enter Release Version"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Primary Genre -->
+                <div class="col-md-6 mb-4">
+                  <label for="primaryGenre">
+                    <i class="fas fa-headphones"></i> Primary Genre
+                    <span class="text-danger">***</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="primaryGenre"
+                    class="form-control custom-input"
+                    placeholder="Enter Primary Genre"
+                  />
+                </div>
+
+                <!-- Sub Genre -->
+                <div class="col-md-6 mb-4">
+                  <label for="subGenre">
+                    <i class="fas fa-music"></i> Sub Genre
+                    <span class="text-danger">***</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="subGenre"
+                    class="form-control custom-input"
+                    placeholder="Enter Sub Genre"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="availability-copyright">
+      <div class="top">
+        <div class="left"><p>Availability</p></div>
+        <div class="right">
+          <p>Copyright , Release Type, UPC, Price Tier etc</p>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <div class="container form-container">
+            <form>
+              <!-- Release Date -->
+              <div class="row mb-4">
+                <div class="col-md-12">
+                  <label for="releaseDate"
+                    >Release Date <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="date"
+                    id="releaseDate"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <!-- Pre-order Date -->
+              <div class="row mb-4">
+                <div class="col-md-12">
+                  <label for="preOrderDate">Pre-order Date</label>
+                  <input
+                    type="date"
+                    id="preOrderDate"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <!-- Territory -->
+              <div class="row mb-4">
+                <div class="col-md-12">
+                  <label for="territory"
+                    >Territory <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="text"
+                    id="territory"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <!-- Time and Timezone -->
+              <div class="row mb-4 left-row">
+                <div class="col-md-6">
+                  <label for="time"
+                    >Time <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="time"
+                    id="time"
+                    class="form-control custom-input small-input"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="timezone"
+                    >Timezone <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="text"
+                    id="timezone"
+                    class="form-control custom-input small-input"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="right">
+          <div class="container form-container">
+            <form>
+              <div class="row">
+                <!-- C Line Year -->
+                <div class="col-md-6 mb-4">
+                  <label for="cLineYear">C Line Year</label>
+                  <input
+                    type="text"
+                    id="cLineYear"
+                    class="form-control custom-input"
+                  />
+                </div>
+
+                <!-- C Line Owner -->
+                <div class="col-md-6 mb-4">
+                  <label for="cLineOwner">C Line Owner</label>
+                  <input
+                    type="text"
+                    id="cLineOwner"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- P Line Year -->
+                <div class="col-md-6 mb-4">
+                  <label for="pLineYear">P Line Year</label>
+                  <input
+                    type="text"
+                    id="pLineYear"
+                    class="form-control custom-input"
+                  />
+                </div>
+
+                <!-- P Line Owner -->
+                <div class="col-md-6 mb-4">
+                  <label for="pLineOwner">P Line Owner</label>
+                  <input
+                    type="text"
+                    id="pLineOwner"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <!-- UPC Code -->
+                <div class="col-md-5 mb-4">
+                  <label for="upcCode">UPC Code</label>
+                  <input
+                    type="text"
+                    id="upcCode"
+                    class="form-control custom-input"
+                  />
+                </div>
+
+                <!-- Generate Button -->
+                <div class="col-md-2 p-1 d-flex justify-content-center">
+                  <button type="button" class="btn btn-generate">
+                    <span class="btn12">GENERATE</span>
+                    
+                  </button>
+                </div>
+
+                <!-- Label -->
+                <div class="col-md-5 mb-4">
+                  <label for="label">Label</label>
+                  <input
+                    type="text"
+                    id="label"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Release Type -->
+                <div class="col-md-6 mb-4">
+                  <label for="releaseType"
+                    >Release Type <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="text"
+                    id="releaseType"
+                    class="form-control custom-input"
+                  />
+                </div>
+
+                <!-- Release Price -->
+                <div class="col-md-6 mb-4">
+                  <label for="releasePrice"
+                    >Release Price <span class="text-danger">***</span></label
+                  >
+                  <input
+                    type="text"
+                    id="releasePrice"
+                    class="form-control custom-input"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
