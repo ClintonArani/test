@@ -1,7 +1,7 @@
 <app-header />
 <div class="main">
   <!-- Navigation Back -->
-  <div class="navigate">
+  <div routerLink="/dashboard" class="navigate">
     <div class="back-icon">
       <i class="fas fa-chevron-left"></i>
       <i class="fas fa-chevron-left" style="margin-left: -12px"></i>
@@ -85,14 +85,28 @@
       </div>
       <div class="bottom">
         <div class="left">
-          <div class="image">
-            <img src="assets/artist.png" alt="" />
-          </div>
-          <div class="upload">
-            <i class="fas fa-cloud-download-alt"></i>
-            <button class="upload-btn">Upload</button>
-          </div>
-        </div>
+  <div class="image">
+    <img
+      [src]="previewUrl || 'assets/artist.png'"
+      alt="Artwork"
+      class="artwork-img"
+    />
+  </div>
+  <div class="upload">
+    <label for="fileInput" class="upload-label">
+      <i class="fas fa-cloud-upload-alt upload-icon"></i>
+      <button type="button" class="upload-btn">Upload</button>
+    </label>
+    <input
+      type="file"
+      id="fileInput"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+      hidden
+    />
+  </div>
+</div>
+
         <div class="right">
           <div class="container form-container">
             <form>

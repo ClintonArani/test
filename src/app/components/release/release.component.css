@@ -138,9 +138,11 @@
     display: flex;
     flex-direction: column;
     background: #f2f2f2;
+    max-height: fit-content
     padding: 2rem;
     border-radius: 1rem;
     border: 2px solid #868585;
+
 }
 
 .artist-card {
@@ -329,7 +331,7 @@
 }
 
 .release-info > .top {
-    background: #cecdca;
+    background: #bfbfbf;
     display: flex;
     height: auto;
     min-height: 2.5rem;
@@ -338,10 +340,10 @@
 
 .release-info > .top > .left {
     flex: 1;
-    border-right: 3px solid #bfbfbf;
+    border-right: 3px solid #cecdca;
     display: flex;
     justify-content: start;
-    padding-left: 2rem;
+    padding-left: 6.9rem;
     align-items: center;
     min-width: 200px;
 }
@@ -365,16 +367,15 @@
 }
 
 .release-info > .bottom > .left {
-    flex: 1;
+    flex: 2;
     border-right: none;
-    border-bottom: 3px solid #bfbfbf;
+    border-right: 3px solid #cecdca;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     gap: 2.5rem;
     padding: 2.5rem 1rem;
-    margin: 0;
 }
 
 .release-info > .bottom > .left > .image {
@@ -393,6 +394,7 @@
 .release-info > .bottom > .right {
     flex: 4;
     padding: 2rem 1rem;
+    margin-left: 6rem;
 }
 
 .upload {
@@ -403,7 +405,7 @@
     flex-wrap: wrap;
 }
 
-.fa-cloud-download-alt {
+.upload-icon {
     color: #3498db;
     font-size: 45px;
 }
@@ -461,7 +463,7 @@ i {
 }
 
 .availability-copyright > .top {
-    background: #cecdca;
+    background: #bfbfbf;
     display: flex;
     align-items: center;
     width: 100%;
@@ -470,12 +472,12 @@ i {
 
 .availability-copyright > .top > .left {
     flex: 1;
-    border-right: 3px solid #bfbfbf;
+    border-right: 3px solid #cecdca;
     height: 2.5rem;
     display: flex;
     justify-content: start;
     align-items: center;
-    padding-left: 2rem;
+    padding-left: 6.9rem;
     min-width: 200px;
 }
 
@@ -496,12 +498,12 @@ i {
 }
 
 .availability-copyright > .bottom > .left {
-    flex: 1;
+    flex: 1.365;
     display: flex;
     justify-content: start;
     border-right: none;
     border-bottom: 3px solid #bfbfbf;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
     margin-right: 5rem;
     width: 100%;
 }
@@ -510,7 +512,7 @@ i {
     flex: 3;
     display: flex;
     justify-content: start;
-    padding: 2rem 1rem;
+    padding: 2rem 3rem;
     width: 100%;
 }
 

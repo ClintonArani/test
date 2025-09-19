@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface TableData {
   username: string;
@@ -18,7 +19,7 @@ interface TableData {
 @Component({
   selector: 'app-royalties',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, FormsModule],
+  imports: [HeaderComponent, CommonModule, FormsModule, RouterLink],
   templateUrl: './royalties.component.html',
   styleUrls: ['./royalties.component.css']
 })
